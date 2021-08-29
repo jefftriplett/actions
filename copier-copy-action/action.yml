@@ -3,7 +3,13 @@ description: "Install Python and Copier"
 
 inputs:
   python-version:
-    description: “The version of Python to use”
+    description: "The version of Python to use"
+    required: true
+  copier-template-src:
+    description: "Indicate where to get the template from. This can be a git URL or a local path."
+    required: true
+  copier-destination-path:
+    description: "Where to generate the new subproject. It must not exist or be empty."
     required: true
 
 runs:
@@ -24,5 +30,5 @@ runs:
 
     - id: copier-update
       name: Update Defaults with Copier
-      run: copier --force copy gh:jefftriplett/defaults .
+      run: copier --force copy ${{ inputs.copier-template-src }} ${{ inputs.copier-destination-path }}
       shell: bash
