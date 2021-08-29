@@ -24,5 +24,5 @@ runs:
 
     - id: copier-update
       name: Update Defaults with Copier
-      run: copier --force copy gh:jefftriplett/defaults
+      run: copier --force copy gh:jefftriplett/defaults .
       shell: bash
