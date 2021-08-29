@@ -24,5 +24,5 @@ runs:
 
     - id: copier-update
       name: Update Defaults with Copier
-      run: copier --force update
+      run: copier --vcs-ref=HEAD --force update
       shell: bash
