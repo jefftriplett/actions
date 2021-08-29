@@ -1,0 +1,17 @@
+name: "Sync Defaults with Copier"
+description: "Install Python and Copier"
+runs:
+  using: "composite"
+  steps:
+
+    - id: install-copier
+      name: Install Copier
+      run: |
+          python -m pip install --upgrade --no-cache-dir pip
+          python -m pip install --no-cache-dir copier
+      shell: bash
+
+    - id: copier-update
+      name: Update Defaults with Copier
+      run: copier --force update
+      shell: bash
