@@ -19,6 +19,7 @@ runs:
       name: Setup Python
       uses: actions/setup-python@v2
       with:
+        cache: "pip"
         python-version:  ${{ inputs.python-version }}
 
     - id: install-copier
