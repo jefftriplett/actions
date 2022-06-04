@@ -11,19 +11,19 @@ runs:
   steps:
     - id: setup-python
       name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         cache: "pip"
         python-version:  ${{ inputs.python-version }}
 
-    - id: install-copier
-      name: Install Copier
-      run: |
-          python -m pip install --upgrade --no-cache-dir pip
-          python -m pip install --no-cache-dir copier
-      shell: bash
+    # - id: install-copier
+    #   name: Install Copier
+    #   run: |
+    #       python -m pip install --upgrade --no-cache-dir pip
+    #       python -m pip install --no-cache-dir copier
+    #   shell: bash
 
     - id: copier-update
       name: Update Defaults with Copier
-      run: copier --vcs-ref=HEAD --force update
+      run: pipx run copier --vcs-ref=HEAD --force update
       shell: bash
