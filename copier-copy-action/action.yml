@@ -3,8 +3,9 @@ description: "Install Python and Copier"
 
 inputs:
   python-version:
+    default: "3.9"
     description: "The version of Python to use"
-    required: true
+    required: false
   copier-template-src:
     description: "Indicate where to get the template from. This can be a git URL or a local path."
     required: true
@@ -19,7 +20,7 @@ runs:
       name: Setup Python
       uses: actions/setup-python@v3
       with:
-        python-version:  ${{ inputs.python-version }}
+        python-version: ${{ inputs.python-version }}
 
     - id: copier-update
       name: Update Defaults with Copier
